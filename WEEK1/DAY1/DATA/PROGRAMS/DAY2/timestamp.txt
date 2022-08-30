@@ -1,0 +1,13 @@
+#include <stdio.h>
+int main()
+{
+   int num,i;
+   printf("enter the sensor values");
+   for(i =0,i<=10,i++)
+   scanf("%d",&num);
+   if(num>=0x05)&&(num<=0xF1);
+       printf("\t"%d output=b%x",i,num);
+       else
+       printf("'it's noise");
+   return 0;
+}
