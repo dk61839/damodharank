@@ -1,0 +1,15 @@
+
+#include<stdio.h>
+void main()
+{
+double n,i=1,f=1;
+     printf("\n Enter The Number:");
+    scanf("%lf",&n);
+    do
+    {
+        f=f*i;
+        i++;
+    }while(i<=n);
+     printf("\n The Factorial of %lf is %lf",n,f);
+return 0;
+}
