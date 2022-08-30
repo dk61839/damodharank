@@ -1,0 +1,24 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+    int a,b,result;
+    char op;
+    printf("print the values\n");
+    scanf("%d%d",&a,&b);
+    printf("choose the operators");
+    scanf("%c",&op);
+    switch(op)
+    {
+        case '+':
+        printf("%d+%d=%d",a,b,a+b);
+        break;
+        case '-':
+        printf("%d-%d=%d",a,b,a-b);
+        break;
+        default:
+        printf("Invalid");
+    }
+    
+    return 0;
+}
