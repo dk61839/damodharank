@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main() 
+{
+    int num,rem,sum=0;
+    printf("print the sum of four digit number");
+    scanf("%d",&num);
+    while (num>=0)
+    {
+       rem = num%10;
+       num= sum+rem;
+       num= num/10;
+        
+    }
+    return 0;
+}
