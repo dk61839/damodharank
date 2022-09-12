@@ -1,0 +1,24 @@
+#include <stdio.h>
+struct student 
+{
+    int empid;
+    char name[18];
+    float percentage;
+};
+void details(struct student *record);    
+int main()
+{
+    struct student record;
+    record.empid=6289;
+    strcpy(record.name,"krishnamurthy");
+    record.percentage = 66.6;
+    details(&record);
+    return 0;
+}
+void details(struct student *record)
+{
+    printf("empid is %d\n",record->empid);
+    printf("name is %s\n",record->name);
+    printf("percentage is %f\n",record->percentage);
+return 0;
+}

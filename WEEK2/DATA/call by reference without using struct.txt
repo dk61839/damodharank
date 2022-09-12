@@ -1,0 +1,21 @@
+#include <stdio.h>
+    int empid; //declaration 
+    char name[18];
+    float percentage;
+void details(int *empid,char *name[18],float *percentage);
+int main()//main functions
+{
+    
+    int empid=6289;//initializing the function
+    char name[18]="krishnamurthy";
+    float percentage = 66.6;
+    details(&empid,&name,&percentage);
+    return 0;
+}
+void details (int *empid,char *name[18],float *percentage)
+{
+    printf("empid is %d\n",*empid);
+    printf("name is %s\n",name );
+    printf("percentage is %f\n",*percentage);
+return 0;
+}
