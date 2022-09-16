@@ -1,0 +1,21 @@
+#include<stdio.h>
+int main()
+{
+FILE*fp=NULL
+char=ch;
+fp fopen("add.txt","r");
+if(fp=NULL)
+{
+printf("file not found")
+exit(1);
+
+}
+while(!feof(fp))
+{
+ch  fgetc();
+}
+printf("%c\n",ch);
+{
+fclose(fp);
+return 0;
+}

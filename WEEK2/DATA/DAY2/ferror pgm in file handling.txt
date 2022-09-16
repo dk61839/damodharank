@@ -1,0 +1,13 @@
+#include<stdio.h>
+int main()
+{
+FILE*fptr;
+fptrfopen("sample.txt","r");
+if(ferror(fptr)!=0)
+printf("error ocurred");
+putc('T',fptr);
+if(ferror(fptr)!=0)
+printf("error occured");
+fclose(fptr);
+return 0;
+}

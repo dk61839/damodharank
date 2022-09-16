@@ -1,0 +1,18 @@
+#include<stdio.h>
+int main()
+{
+FILE*file;
+char ch[100];
+/*opening an empty test file in read only mode*/
+filefopen("txtfile.txt","r");
+/*it will causes an i/o error trying to write on it*/
+fputc('A',file);
+if(ferror(file);
+{
+printf("error:writing in a read only file\n");
+/*clearing error indicators*/
+clearer(file);
+}
+fclose(file);
+return (0);
+}

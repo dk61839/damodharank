@@ -1,0 +1,19 @@
+int main()
+{
+FILE*fp;
+char str[100]="error is";
+fpfopen("sys.txt","r");
+if(fp=NULL)
+{
+printf("file not found");
+}
+else
+fprintf(fp,"%s","well done");
+if(ferror(fp)
+{
+perror(str)
+printf("error is")
+}
+fclose(fp)
+return 0;
+}
