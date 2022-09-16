@@ -1,0 +1,19 @@
+
+
+#include <xc.h>
+#define _xtal_FREQ 2000000
+void main()
+{
+  TRISA=0X02;
+    TRISC=0X28;
+    ADCON0=0;
+    ADCON1=0X1F;
+unsigned int a0;
+whiel(1)
+{
+_delay_ms(5);
+GO_DONE  1;
+while(GO_nDONE);
+a=(ADRESH<<8)+ADRESL;
+PORTC=a;
+}

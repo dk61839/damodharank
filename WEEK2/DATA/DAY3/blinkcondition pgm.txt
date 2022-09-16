@@ -1,0 +1,29 @@
+#include<xc.h>
+#include<stdio.h>
+#define led1 RB0
+#define led2 RB1
+int main(
+{
+TRISBbits.RB0=0;
+trisbBITS.RB1=0;
+led1=0;
+led2=0;
+while(1)
+{
+for(int i0;i<5;i++)
+{
+led1=1;
+_delay_ms(300);
+led1=0;
+_delay_ms(300);
+}
+_delay_ms(1000);
+for(int i0;i<3;i++)
+{
+led2=1;
+_delay_ms(300);
+led2=0;
+_delay_ms(200);
+}
+}
+}
