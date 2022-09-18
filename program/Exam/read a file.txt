@@ -1,0 +1,29 @@
+Algorithm
+step 1:If the file does not exist, then a new file will be created.If the file exists, then old content gets erased & current content will be stored.
+step 2:If the file does not exist, then fopen function returns NULL value.If the file exists, then data is read from the file successfully.
+
+/*read a file contents*/
+#include<ctype.h>
+#include<stdlib.h>
+int main(){
+   char ch;
+/* write mode of opening file*/
+   FILE *fp;
+   fp=fopen("std1.txt","w");
+   printf("enter the text.press cntrl Z:\n");
+   while((ch = getchar())!=EOF){
+      putc(ch,fp);
+   }
+   fclose(fp);
+/* read  mode of opening file*/
+   fp=fopen("std1.txt","r");
+   printf("text on the file:\n");
+   while ((ch=getc(fp))!=EOF){
+      if(ch == ',')
+         printf("\t\t");
+      else
+         printf("%c",ch);
+   }
+   fclose(fp);
+   return 0;
+}

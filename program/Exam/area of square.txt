@@ -1,0 +1,27 @@
+Algorithm
+step1:Read the Length of Side of a Square.
+step2:Calling Macro area(x) where x is length_of_side.
+
+
+/* Program to find area of square using Macro in c */
+
+#include<stdio.h>
+#define SQUARE(x) ((x)*(x))
+
+void main()
+{
+	int y, x;
+
+/* Read the Length of Side of a Square */
+        printf("Enter a number:\t");
+         scanf("%d", &x);
+
+/* Calling Macro area(x) where x is length_of_side */
+
+	y = SQUARE(x);
+	printf("Squared number is:\t%d\n", y);
+}
+
+o/p:
+enter a number :6
+squared number is:36

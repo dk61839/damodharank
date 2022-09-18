@@ -1,0 +1,25 @@
+Algorithm
+Step 1: Divide the number by 2 through % (modulus operator) and store the remainder in array
+Step 2: Divide the number by 2 through / (division operator)
+Step 3: Repeat the step 2 until number is greater than 0.
+
+/* C Program to Convert Decimal to Binary */
+
+ #include <stdio.h>//Header file for i/o
+int main() 
+{
+ int a[10], number, i, j;//declaring a variable
+ printf("\n Please Enter the Number You want to Convert  :  ");
+ scanf("%d", &number);
+ for(i = 0; number > 0; i++)//using forloop   iteration for first,second, third till condition false it exeecute.
+ {
+ a[i] = number % 2;
+ number = number / 2;
+ }
+printf("\n Binary Number of a Given Number =  ");
+for(j = i - 1; j >= 0; j--)  {
+printf(" %d ", a[j]);
+}
+printf("\n");
+return 0;
+}

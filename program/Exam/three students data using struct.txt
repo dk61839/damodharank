@@ -1,0 +1,67 @@
+ALGORITHM
+STEP1:To store multiple student details we will use an array of structures
+STEP2: Each element in the array will represent a single student.
+STEP3:we will read the inputs for each student from the user
+STEP4:then output all student details by iterating through the array using the ‘for’ loop.
+STEP4:STOP.
+
+/*THREE STUDENTS DATA USING STRUCTURE*/
+#include <stdio.h>
+#include <stdlib.h>
+ 
+typedef struct
+{
+    
+    int id;
+    int age;
+char name[30];
+} student;
+ 
+int main()
+{
+    //number of students
+    int n=3;
+
+    //array to store structure values of all students
+    Students students[n];
+ 
+    //Taking each student detail as input
+    printf("Enter %d Students Details \n \n",n);
+    for(int i=0; i<n; i++){
+        printf("Students %d:- \n",i+1);
+
+        //Name
+        printf("Name: ");
+        scanf("%[^\n]s",Students[i].name);
+
+        //ID
+        printf("Id: ");
+        scanf("%d",&Students[i].id);
+
+        //age
+        printf("age: ");
+        scanf("%d",Students[i].age);
+
+        //to consume extra '\n' input
+        char ch = getchar();
+ 
+        printf("\n");
+    }
+ 
+    //Displaying Students details
+    
+    for(int i=0; i<n; i++){
+        printf("Name \t: ");
+        printf("%s \n",Students[i].name);
+ 
+        printf("Id \t: ");
+        printf("%d \n",Students[i].id);
+ 
+        printf("age \t: ");
+        printf("%d \n",Students[i].age);
+ 
+        printf("\n");
+    }
+ 
+    return 0;
+}
