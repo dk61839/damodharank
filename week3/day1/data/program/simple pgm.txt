@@ -1,0 +1,12 @@
+// Your First C++ Program
+
+#include <iostream>
+
+int main() 
+{
+int a;
+ std::cout << "enter value of a:";
+ std::cin>>a;
+ std::cout<<"a"<<a;
+    return 0;
+}
