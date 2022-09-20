@@ -1,0 +1,37 @@
+//algorithm//
+step1: declare the class and employee details in private attribute.
+step2: Make function calls to read_info() and output_info() using class object.
+step3: declaring object in main function and using dot operators .
+
+#include<iostream>
+using namespace std;
+class Employee //declaring class 
+{
+	char name[50]; //employee name
+	float salary;//employee salary
+public:
+void read()
+{
+	cout<<"enter the employee name";//
+	cin>> name;
+	cout<<"enter the employee salary";
+	cin>> salary;
+
+}
+void output()
+{
+	cout<<"employee name is= damo";
+	cout<<"employee salary is = 20000";
+}
+
+
+};
+
+int main()
+{
+	setbuf(stdout,NULL);
+	Employee e1;
+	e1.read();
+	e1.output();
+}
+

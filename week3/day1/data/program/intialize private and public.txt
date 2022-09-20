@@ -1,0 +1,17 @@
+#include<iostream>
+using namespace std;
+class Myclass
+{
+	public://public acess specifier
+	int x;//public attributes
+	private://privat acess specifier
+	//int y; //private attributes
+};
+int main()
+{
+	Myclass myobj;
+	myobj.x=25;//allowed public
+        myobj.y=50;//not allowed private
+	cout<<myobj.x;
+	return 0;
+}

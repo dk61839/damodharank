@@ -1,0 +1,37 @@
+//algorithm//
+Step 1 - Include the required header files (iostream.h and conio.h).
+Step 2 - Create a class (StudentInfo) with the following class members as public members.
+Step 3 - Implement the read_info() and display_info() member functions.
+Step 4 - Create a main() method.
+Step 5 - Create an object of the above class inside the main() method.
+Step 6 - Make function calls to read_info() and display_info() using class object.
+
+#include<iostream>//inbuild header file for i/o 
+using namespace std;
+class student//declaring class
+{
+	int age;
+	float fees;
+public:
+	void input()//function call to read using class obj.
+	{
+	cout<<"enter the age of student";
+	cout <<"enter the fees of student";
+	cin>>age;
+	cin>>fees;
+	}
+	void output()// function  call to write using class obj.
+	{
+		cout<<"the age is"<<age;
+		cout<<"the fees is "<<fees;
+
+	}
+};
+int main()
+	{
+	setbuf(stdout,NULL);
+	student s1;
+		s1.input();//declaring object in main function with dot opertors
+		s1.output();
+
+	}
