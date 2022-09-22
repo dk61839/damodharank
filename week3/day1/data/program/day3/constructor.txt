@@ -1,0 +1,37 @@
+algorithm
+step1:declaring class classname
+step2:declaring a variable with dataype  as default private attribute.
+step3:decalring constructor and constructor name should be same as classname.
+step4:using two functions for read and display.
+step5:declaring a object with classname 
+step6:dispalying output with dot operators.
+
+
+#include<iostream>
+using namespace std;
+class person //declaring class classname
+{
+private:
+string name; int age;
+public:
+person()//declaring constructor in public attribute
+{
+ cout<<"default constructor is called"<<endl;
+	name="damodharan";//initiliazing 
+	age=25;
+
+}
+void display()//function
+{
+cout<<"enter the name= damodharan"<<endl;
+cout<<"enter the age=25"<<endl;// output function
+
+}
+};
+int main()
+{
+setbuf(stdout,NULL);//the setbuf function lets you change the way a stream is buffered and to control the size and 
+                     location of the buffer//
+  person obj;//declaring object with classname
+obj.display(); //displaying output with dot operators
+}

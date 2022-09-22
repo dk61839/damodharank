@@ -1,0 +1,38 @@
+algorithm
+
+step1:declaring class and classname
+step2:declaring constructor same as classname.
+step3:declaring two function to read and display  .
+step4:declaring two function to read and display
+step5:declaring object with classname .
+#include<iostream>//inbuild header file for i/o as cin an cout.
+using namespace std;scope resolution operators
+class person//declaring class and classname
+{
+private://private attribute
+string name; int age; 
+public: //public attribute
+person()//declaring constructor same as classname
+{
+	cout<<"default constructor is called"<<endl;
+	name="damodharan";//intializing constructor
+	age=25;
+
+}
+void display()//declaring two function to read and display  .
+{
+cout<<"enter the name= damodharan"<<endl;
+cout<<"enter the age=25"<<endl;
+
+}
+~person()//declaring destructor and used to deallocate memory.
+{
+	cout<<"destructor is called"<<endl;
+}
+}obj;
+int main()
+{
+	setbuf(stdout,NULL);
+  person obj;//declaring object with classname .
+obj.display();//dispaly with dot operators
+}
