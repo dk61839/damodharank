@@ -1,0 +1,28 @@
+#include<iostream>
+using namespace std;
+class father
+{
+private:
+	int salary;
+public:
+	int age;
+
+};
+class son : public father
+{
+public:
+void display()
+{
+	age=40;
+	cout<<"hi my father"<<age<<endl;
+}
+};
+int main()
+{
+    setbuf(stdout,NULL);
+    son s1;
+    s1.display();
+
+}
+
+
