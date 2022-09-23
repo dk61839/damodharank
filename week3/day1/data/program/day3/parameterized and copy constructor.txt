@@ -1,0 +1,46 @@
+Algorithm
+step1:declaring class and classname
+step2:declaring parameterized constructor with arguments in functions.
+step3:declaring copy constructor with  object in functions.
+step4:passing arguments to parameterized constructor
+step5:copying object as one obj  to another object.
+
+
+#include<iostream>
+using namespace std;
+class person//declaring class with classname
+{
+private://private attribute
+string person_name; int person_age;
+public://public attribute
+person(string name,int age)//declaring parameterized constructor with arguments.
+{
+	cout<<"parameterized constructor is called"<<endl;
+	person_name=name;
+	person_age=age;
+}
+
+
+person(const person& obj)//declaring copy constructor with  object
+{
+	cout<<"copy constructor"<<endl;
+	person_name =obj.person_name;
+	person_age=obj.person_age;
+
+}
+void display()//using functions to display output.
+{
+cout<<" name:"<<person_name<<endl;
+cout<<" age:"<<person_age<<endl;
+
+}
+};
+int main()
+{
+	setbuf(stdout,NULL);
+  person obj("good morning",25);//passing arguments to parameterized constructor
+  person obj1(obj);copying object as one obj  to another object.
+  obj.display();
+  obj1.display();
+
+}
