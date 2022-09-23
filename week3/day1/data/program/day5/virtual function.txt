@@ -1,0 +1,30 @@
+#include<iostream>
+using namespace std;
+class a  // base class
+{
+public:
+	virtual void show()//declaring virtual function.
+	{
+	cout<<"display method of baseclass"<<endl;
+	}
+
+};
+class b:public a // derived class
+{
+public:
+	void display()// declaring function
+	{
+		cout<<"this display method of subclass"<<endl;
+	}
+};
+int main()
+{
+
+b sb;//creating object with function name
+a  &bs =sb;//replacing subclass to base class using address.
+sb.display();//display subclass.
+//bs.show();
+return 0;
+}
+
+
