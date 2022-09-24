@@ -1,0 +1,154 @@
+Pseudo code:
+1.We initializing four functions.
+2.Can initiaization ,sys initialization,set baud rate,_interrupt() ISR1(),set mask and filter.
+3.In system initialization we enabling global and peripheral interrupt.
+4.In can initialization we transmitting tx & Rx,choosing Interrupt Priority bit(highest)and Interrupt Enable bit(1)
+5.Setting the configuration mode and setting the status register in  set baud rate
+6.can rx is to get mode and transmitting 9F address in buffer from 0 to 7.
+
+#include<xc.h>
+#define _XTAL_FREQ 20000000
+char data_buf[11];
+void System_init();
+void can_rx_init();
+void set_baudrate();
+void can_rx_read();
+void set_mode();
+void get_mode();
+void __interrupt() ISR1();
+void mask();
+void filter();
+void CAN_TX();
+void CAN_TX1();
+int main()
+{
+    System_init();
+    can_rx_init();
+    set_baudrate();
+    mask();
+    filter();
+    while(1)
+    {
+      //CAN_TX();
+       //__delay_ms(2000);
+       if(data_buf[6] == 0xAA  && data_buf[7] == 0XAA  && data_buf[8] == 0XAA  && data_buf[9] == 0XAA && data_buf[10] == 0XAA)
+       {
+           PORTDbits.RD0 = 1;
+           __delay_ms(2000);
+           CAN_TX();
+       }
+       else
+       {
+           PORTDbits.RD0 = 0;
+           __delay_ms(2000);
+           CAN_TX1();
+       }
+    }
+}
+void System_init()
+{
+    GIE = 1;          //enable the global 
+    PEIE = 1;         //enable pheripherial
+}
+void can_rx_init()
+{
+    TRISBbits.RB2 = 0;     //transmitting pin in MCU  Tx
+    TRISBbits.RB3 = 1;     //receiving pin in MCU Rx
+    TRISDbits.RD0 = 0;
+    PORTDbits.RD4 = 0;
+    PORTDbits.RD0 = 0;
+    RXB0IP = 1;// Receive Buffer 0 Interrupt Priority bit
+    RXB0IE = 1;//Receive Buffer 0 Interrupt Enable bit
+}
+void set_mode()
+{
+    set_baudrate();
+}
+void get_mode()
+{
+    CANCON = 0x0E;
+}
+void set_baudrate()
+{
+    CANCON = 0x80;      //setting the configuration mode to set baud rate
+    while(CANSTAT != 0x80);      //setting the status register
+    BRGCON1 = 0XC1;        //r
+    BRGCON2 = 0XAE;        
+    BRGCON3 = 0X45;
+    CIOCON = 0X20;
+    CANCON = 0x08;
+}
+void mask()
+{
+    RXM0SIDH = 0x00;
+    RXM0SIDL = 0x00;
+}
+void filter()
+{
+    RXF0SIDH = 0x00;
+    RXF0SIDL = 0x00;
+}
+void __interrupt() ISR1()
+{
+    if(RX0IF)
+    {
+        RX0IF = 0;//CAN Receive Buffer 0 Interrupt Flag bit
+        can_rx_read();
+    }
+}
+void can_rx_read()
+{
+           get_mode();
+           
+           data_buf[0] = RXB0SIDH;  
+           data_buf[1] = RXB0SIDL;
+           data_buf[2] = RXB0DLC ;
+           data_buf[3] = RXB0D0 ;
+           data_buf[4] = RXB0D1 ;
+           data_buf[5] = RXB0D2 ;
+           data_buf[6] = RXB0D3 ;
+           data_buf[7] = RXB0D4 ;
+           data_buf[8] = RXB0D5 ;
+           data_buf[9] = RXB0D6 ;
+           data_buf[10] = RXB0D7 ;     
+           RXB0CONbits.RXB0FUL = 0;  //0 = Receive buffer is open to receive a new message
+
+}
+void CAN_TX()
+{
+     CANCON = 0x08;
+     TXB0SIDH = 0X00;                   //Transmitting to  address 9F 
+     TXB0SIDL = 0X08;
+     TXB0EIDH = 0X09;
+     TXB0EIDL = 0X32;
+     TXB0DLC = 0X08;
+     TXB0D0  = 0X00;
+     TXB0D1  = 0X00;
+     TXB0D2  = 0X00;
+     TXB0D3  = 0X01;
+     TXB0D4  = 0X00;
+     TXB0D5  = 0X00;
+     TXB0D6  = 0X00;
+     TXB0D7  = 0X00;
+     TXB0CON = 0X08;
+     CANCON = 0X08;   
+}
+void CAN_TX1()
+{
+     CANCON = 0x08;
+     TXB0SIDH = 0X00;                   //Transmitting to  address 9F 
+     TXB0SIDL = 0X08;
+     TXB0EIDH = 0X09;
+     TXB0EIDL = 0X32;
+     TXB0DLC = 0X08;
+     TXB0D0  = 0X00;
+     TXB0D1  = 0X00;
+     TXB0D2  = 0X00;
+     TXB0D3  = 0X00;
+     TXB0D4  = 0X00;
+     TXB0D5  = 0X00;
+     TXB0D6  = 0X00;
+     TXB0D7  = 0X00;
+     TXB0CON = 0X08;
+     CANCON = 0X08;   
+}
